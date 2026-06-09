@@ -1,0 +1,10 @@
+package com.example.Caching_Application.repositories;
+
+import com.example.Caching_Application.entities.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+    List<Employee> findByEmail(String email);
+}
