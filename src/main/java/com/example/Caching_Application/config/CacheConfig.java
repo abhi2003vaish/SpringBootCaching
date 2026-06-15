@@ -28,7 +28,7 @@ public class CacheConfig {
                 .entryTtl(Duration.ofSeconds(60))       // data Time to live in redis cache is 1 min
                 .enableTimeToIdle()  //this line reset the expiration time or TTL if it get accessed before TTL expires
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new JacksonJsonRedisSerializer<EmployeeDto>(EmployeeDto.class)))
+                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new JacksonJsonRedisSerializer<>(EmployeeDto.class)))
                 ;
 
         return RedisCacheManager.builder(redisConnectionFactory)
